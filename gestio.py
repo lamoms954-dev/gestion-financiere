@@ -43,7 +43,7 @@ DATA_DIR = "data"
 
 # Dossiers revenus
 REVENUS_A_TRAITER = "revenus_a_traiter"
-REVENUS_TRAITE = "revenus_traite"
+REVENUS_TRAITES = "revenus_traite"
 
 # Création automatique de tous les dossiers
 for d in [TO_SCAN_DIR, SORTED_DIR, DATA_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE]:
@@ -1745,6 +1745,7 @@ elif page == "📊 Voir Transactions":
 if page == "📈 Solde prévisionnel":
 
     interface_solde_previsionnel()
+
 
 
 
