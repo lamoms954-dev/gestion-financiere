@@ -33,24 +33,23 @@ st.markdown("""
 # ==============================
 # 📂 CONFIGURATION DES DOSSIERS
 # ==============================
-BASE_DIR = r"C:\Users\djabi\OneDrive\Bureau"
-
-# Dossiers principaux
-TO_SCAN_DIR = os.path.join(BASE_DIR, "tickets_a_scanner")   # Dossier source
-SORTED_DIR = os.path.join(BASE_DIR, "tickets_scanner")      # Dossier final (classé)
+# Dossiers principaux (relatifs à la racine du dépôt)
+TO_SCAN_DIR = "tickets_a_scanner"       # Dossier source pour tickets
+SORTED_DIR = "tickets_scanner"          # Dossier final (classé)
 
 # Dossier data interne
-DATA_DIR = os.path.join(BASE_DIR, "data")
+DATA_DIR = "data"
 RAW_DIR = os.path.join(DATA_DIR, "raw_tickets")
 SCANNED_DIR = os.path.join(DATA_DIR, "scanned_tickets")
 
 # Dossiers revenus
-REVENUS_A_TRAITER = os.path.join(BASE_DIR, "revenus_a_traiter")
-REVENUS_TRAITE = os.path.join(BASE_DIR, "revenus_traités")
+REVENUS_A_TRAITER = "revenus_a_traiter"
+REVENUS_TRAITE = "revenus_traite"
 
 # Création automatique de tous les dossiers
 for d in [TO_SCAN_DIR, SORTED_DIR, DATA_DIR, RAW_DIR, SCANNED_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE]:
     os.makedirs(d, exist_ok=True)
+
 
 
 # ==============================
@@ -604,8 +603,9 @@ def process_all_tickets_in_folder():
 def interface_process_all_revenues_in_folder():
     st.subheader("📥 Scanner et enregistrer tous les revenus depuis le dossier")
 
-    src_folder = r"C:\Users\djabi\OneDrive\Bureau\revenus_a_traiter"
-    dest_folder = r"C:\Users\djabi\OneDrive\Bureau\revenus_traités"
+    src_folder = os.path.join("revenus_a_traiter")
+    dest_folder = os.path.join("revenus_traités")
+
 
     # --- Étape 1 : scanner les fichiers une seule fois ---
     if "revenus_data" not in st.session_state:
@@ -1741,4 +1741,5 @@ elif page == "📊 Voir Transactions":
 # 📊 SOLDE PREVISIONNELS
 # ==============================        
 if page == "📈 Solde prévisionnel":
+
     interface_solde_previsionnel()
