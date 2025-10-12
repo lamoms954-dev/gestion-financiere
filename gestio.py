@@ -704,10 +704,13 @@ def interface_process_all_revenues_in_folder():
                     data["source"]
                 ))
 
-                # Déplacement du fichier
-                target_dir = os.path.join(dest_folder, data["categorie"], data["sous_categorie"])
+                # Déplacement du fichier — tout reste centralisé dans /data
+                target_dir = os.path.join(DATA_DIR, "revenus_traités", data["categorie"], data["sous_categorie"])
                 os.makedirs(target_dir, exist_ok=True)
+
+                # On déplace depuis /data/revenus_a_traiter → /data/revenus_traités/...
                 shutil.move(data["path"], os.path.join(target_dir, data["file"]))
+
 
             conn.commit()
             conn.close()
@@ -1742,5 +1745,6 @@ elif page == "📊 Voir Transactions":
 if page == "📈 Solde prévisionnel":
 
     interface_solde_previsionnel()
+
 
 
