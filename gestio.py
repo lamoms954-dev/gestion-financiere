@@ -34,7 +34,7 @@ st.markdown("""
 # 📂 CONFIGURATION DES DOSSIERS
 # ==============================
 # Dossiers principaux (relatifs à la racine du dépôt)
-from config_folders import TO_SCAN_DIR, SORTED_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE, DATA_DIR, RAW_DIR, SCANNED_DIR
+from config_folders import TO_SCAN_DIR, SORTED_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE, DATA_DIR
 TO_SCAN_DIR = "tickets_a_scanner"       # Dossier source pour tickets
 SORTED_DIR = "tickets_scanner"          # Dossier final (classé)
 
@@ -502,6 +502,7 @@ def ajouter_transaction(categorie, sous_categorie, montant, date_transaction, ty
 # ⚙️ TRAITEMENT DES TICKETS ET REVENUS
 # ==============================
 def process_all_tickets_in_folder():
+    
     tickets = [f for f in os.listdir(TO_SCAN_DIR) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
     if not tickets:
         st.warning("Aucun ticket trouvé dans le dossier à scanner.")
@@ -601,10 +602,9 @@ def process_all_tickets_in_folder():
 
 def interface_process_all_revenues_in_folder():
     st.subheader("📥 Scanner et enregistrer tous les revenus depuis le dossier")
-
-    src_folder = os.path.join("revenus_a_traiter")
-    dest_folder = os.path.join("revenus_traités")
-
+    
+    src_folder = REVENUS_A_TRAITER
+    dest_folder = REVENUS_TRAITES
 
     # --- Étape 1 : scanner les fichiers une seule fois ---
     if "revenus_data" not in st.session_state:
@@ -1745,6 +1745,7 @@ elif page == "📊 Voir Transactions":
 if page == "📈 Solde prévisionnel":
 
     interface_solde_previsionnel()
+
 
 
 
