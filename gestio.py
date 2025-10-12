@@ -34,6 +34,7 @@ st.markdown("""
 # 📂 CONFIGURATION DES DOSSIERS
 # ==============================
 # Dossiers principaux (relatifs à la racine du dépôt)
+from config_folders import TO_SCAN_DIR, SORTED_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE, DATA_DIR, RAW_DIR, SCANNED_DIR
 TO_SCAN_DIR = "tickets_a_scanner"       # Dossier source pour tickets
 SORTED_DIR = "tickets_scanner"          # Dossier final (classé)
 
@@ -1743,3 +1744,4 @@ elif page == "📊 Voir Transactions":
 if page == "📈 Solde prévisionnel":
 
     interface_solde_previsionnel()
+
