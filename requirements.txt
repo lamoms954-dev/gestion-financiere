@@ -1,0 +1,8 @@
+streamlit
+pandas
+pillow
+pytesseract
+pdfplumber
+python-dateutil
+matplotlib
+alpha_vantage
