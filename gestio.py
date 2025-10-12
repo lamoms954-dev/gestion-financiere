@@ -40,15 +40,13 @@ SORTED_DIR = "tickets_scanner"          # Dossier final (classé)
 
 # Dossier data interne
 DATA_DIR = "data"
-RAW_DIR = os.path.join(DATA_DIR, "raw_tickets")
-SCANNED_DIR = os.path.join(DATA_DIR, "scanned_tickets")
 
 # Dossiers revenus
 REVENUS_A_TRAITER = "revenus_a_traiter"
 REVENUS_TRAITE = "revenus_traite"
 
 # Création automatique de tous les dossiers
-for d in [TO_SCAN_DIR, SORTED_DIR, DATA_DIR, RAW_DIR, SCANNED_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE]:
+for d in [TO_SCAN_DIR, SORTED_DIR, DATA_DIR, REVENUS_A_TRAITER, REVENUS_TRAITE]:
     os.makedirs(d, exist_ok=True)
 
 
@@ -1744,4 +1742,5 @@ elif page == "📊 Voir Transactions":
 if page == "📈 Solde prévisionnel":
 
     interface_solde_previsionnel()
+
 
